@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Piedras - Complejo de Cabañas | El Trapiche, San Luis</title>
+    <meta name="description" content="Complejo de cabañas en El Trapiche, San Luis. Conectá con la naturaleza en un entorno único de piedra y confort.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --color-primary: #E08A4F;
+            --color-primary-light: #F0A670;
+            --color-primary-dark: #C87040;
+            --color-secondary: #2C2C2C;
+            --color-text: #3A3A3A;
+            --color-text-light: #6B6B6B;
+            --color-background: #FAFAF8;
+            --color-white: #FFFFFF;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: var(--color-background);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--color-white);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled .mobile-menu-toggle span {
+            background: var(--color-white);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            backdrop-filter: none;
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background: var(--color-primary);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            text-decoration: none;
+        }
+
+        .logo-circle {
+            width: 55px;
+            height: 55px;
+            background: var(--color-primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled .logo-circle {
+            background: var(--color-white);
+        }
+
+        .logo-circle svg path {
+            fill: white;
+            transition: fill 0.3s ease;
+        }
+
+        .nav.scrolled .logo-circle svg path {
+            fill: var(--color-primary);
+        }
+
+        .logo:hover .logo-circle {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--color-white);
+            line-height: 1;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav.scrolled .logo-text {
+            color: var(--color-white);
+        }
+
+        .logo-subtext {
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav.scrolled .logo-subtext {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-white);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            position: relative;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav.scrolled .nav-link {
+            color: var(--color-white);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--color-white);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 0.7rem 1.6rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav.scrolled .nav-cta {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 145, 94, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.villademerlo.com.ar/wp-content/uploads/2014/08/El-Trapiche-San-Luis.jpg') center/cover;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(44, 44, 44, 0.35) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--color-white);
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--color-primary);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.6rem 1.5rem;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+            color: var(--color-white);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 5.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            opacity: 0.98;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero-cta-primary,
+        .hero-cta-secondary {
+            padding: 1.1rem 2.5rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .hero-cta-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .hero-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            background: var(--color-primary-dark);
+        }
+
+        .hero-cta-secondary {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .hero-cta-secondary:hover {
+            background: var(--color-white);
+            color: var(--color-secondary);
+            transform: translateY(-3px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeInUp 1s ease-out 0.8s backwards, float 3s ease-in-out infinite 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0 auto 0.5rem;
+        }
+
+        .hero-scroll-text {
+            color: var(--color-white);
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            padding: 7rem 2rem;
+            background: var(--color-white);
+        }
+
+        .welcome-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .welcome-content {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .welcome-content h2 {
+            font-family: var(--font-body);
+            font-size: 3.2rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .welcome-content .highlight {
+            color: var(--color-primary);
+        }
+
+        .welcome-content p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-content .lead-text {
+            font-size: 1.15rem;
+            color: var(--color-text);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .welcome-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .welcome-feature-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--color-primary);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .welcome-feature-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        .welcome-feature-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .welcome-feature-text p {
+            font-size: 0.875rem;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+
+        .welcome-map-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .welcome-map {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 7rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.villademerlo.com.ar/wp-content/uploads/2014/08/El-Trapiche-San-Luis.jpg') center/cover;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+
+        .gallery::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.45) 0%, 
+                rgba(44, 44, 44, 0.50) 100%);
+            z-index: -1;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-header h2 {
+            font-family: var(--font-body);
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .gallery-header p {
+            font-size: 1.1rem;
+            color: var(--color-white);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(212, 145, 94, 0.95), transparent);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-item-overlay h3 {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            color: var(--color-white);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gallery-item-overlay p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 7rem 2rem;
+            background: var(--color-background);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 0.5rem 1.4rem;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-body);
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-primary);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            background: var(--color-primary-dark);
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--color-secondary);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 7rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.villademerlo.com.ar/wp-content/uploads/2014/08/El-Trapiche-San-Luis.jpg') center/cover;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.45) 0%, 
+                rgba(44, 44, 44, 0.50) 100%);
+            z-index: -1;
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-container h2 {
+            font-family: var(--font-body);
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-container p {
+            font-size: 1.05rem;
+            color: var(--color-white);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary,
+        .cta-btn-secondary {
+            padding: 1.1rem 2.5rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            background: var(--color-primary-dark);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .cta-btn-secondary:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-white);
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a::before {
+            content: '→';
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-white);
+            transform: translateX(3px);
+        }
+
+        .footer-links a:hover::before {
+            transform: translateX(3px);
+        }
+
+        /* Contact links with specific icons */
+        .footer-section:nth-child(3) .footer-links a::before {
+            content: '';
+            width: 18px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .footer-section:nth-child(3) .footer-links li:nth-child(1) a::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z'/%3E%3Cpath d='M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.086-1.391l-4.064-3.696z'/%3E%3C/svg%3E");
+        }
+
+        .footer-section:nth-child(3) .footer-links li:nth-child(2) a::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.19-.53.07-.26-.13-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.24-.01-.39.11-.5.11-.11.27-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01z'/%3E%3C/svg%3E");
+        }
+
+        .footer-section:nth-child(3) .footer-links li:nth-child(3) a::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E");
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: whatsappPulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+                transform: scale(1.05);
+            }
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 35px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-btn i {
+            font-size: 32px;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-primary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .logo {
+                margin: 0 auto;
+            }
+
+            .mobile-menu-toggle {
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .welcome-features {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-feature-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo-circle {
+                width: 48px;
+                height: 48px;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-cta-primary,
+            .hero-cta-secondary {
+                padding: 1rem 2rem;
+                font-size: 0.8rem;
+            }
+
+            .welcome,
+            .gallery,
+            .features,
+            .cta-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .welcome-content h2,
+            .gallery-header h2,
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .cta-container h2 {
+                font-size: 2.5rem;
+            }
+
+            .welcome-features {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-feature-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .welcome-map {
+                height: 350px;
+            }
+
+            .features-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                font-size: 0.65rem;
+            }
+
+            .whatsapp-btn {
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-btn i {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">
+                    <svg width="28" height="28" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 5L20 12H10L15 5Z" opacity="0.9"/>
+                        <path d="M8 13L13 20H3L8 13Z" opacity="0.7"/>
+                        <path d="M22 13L27 20H17L22 13Z" opacity="0.7"/>
+                    </svg>
+                </div>
+                <div class="logo-text-wrapper">
+                    <div class="logo-text">LAS PIEDRAS</div>
+                    <div class="logo-subtext">Complejo de Cabañas</div>
+                </div>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#cabanas" class="nav-link">Cabañas</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="https://wa.me/5492664552856" target="_blank" class="nav-cta">Reservar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-badge">El Trapiche, San Luis</div>
+            <h1 class="hero-title">Las Piedras</h1>
+            <p class="hero-subtitle">
+                Donde la arquitectura en piedra se encuentra con el confort moderno. Viví la experiencia única de las sierras puntanas.
+            </p>
+            <div class="hero-cta-group">
+                <a href="https://wa.me/5492664552856?text=Hola%2C%20quiero%20consultar%20disponibilidad" target="_blank" class="hero-cta-primary">
+                    Consultar Disponibilidad
+                </a>
+                <a href="#cabanas" class="hero-cta-secondary">
+                    Ver Cabañas
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="welcome-container">
+            <div class="welcome-content">
+                <h2>Tu refugio en <span class="highlight">las sierras</span></h2>
+                <p class="lead-text">
+                    En Las Piedras encontrarás más que un lugar para hospedarte. Es una experiencia completa donde cada detalle está pensado para tu bienestar.
+                </p>
+                <p>
+                    Nuestras cabañas están construidas con piedra de la zona, rodeadas de naturaleza pura y equipadas con todo lo necesario para tu comodidad. Desde el amanecer hasta el atardecer, cada momento es una invitación a respirar profundo y disfrutar del aire puro de las sierras.
+                </p>
+                
+                <div class="welcome-features">
+                    <div class="welcome-feature-item">
+                        <div class="welcome-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 10 12 6.16-1.26 10-6.45 10-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <div class="welcome-feature-text">
+                            <h4>Arquitectura en Piedra</h4>
+                            <p>Construcción tradicional con materiales de la región</p>
+                        </div>
+                    </div>
+                    <div class="welcome-feature-item">
+                        <div class="welcome-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="welcome-feature-text">
+                            <h4>Equipamiento Completo</h4>
+                            <p>Todo lo necesario para una estadía perfecta</p>
+                        </div>
+                    </div>
+                    <div class="welcome-feature-item">
+                        <div class="welcome-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            </svg>
+                        </div>
+                        <div class="welcome-feature-text">
+                            <h4>Naturaleza Pura</h4>
+                            <p>Rodeado de sierras y paisajes únicos</p>
+                        </div>
+                    </div>
+                    <div class="welcome-feature-item">
+                        <div class="welcome-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="welcome-feature-text">
+                            <h4>Atención Personalizada</h4>
+                            <p>Siempre disponibles para lo que necesites</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="welcome-map-wrapper">
+                <iframe 
+                    class="welcome-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54424.95838776179!2d-65.38!3d-33.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d43f70de8c3c0b%3A0x7c8a8c8a8c8a8c8a!2sEl%20Trapiche%2C%20San%20Luis!5e0!3m2!1ses!2sar!4v1234567890"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2>Nuestras Cabañas</h2>
+                <p>Espacios únicos diseñados para tu confort y descanso</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="./arquitectura.jpg" alt="Cabaña exterior con piedra">
+                    <div class="gallery-item-overlay">
+                        <h3>Arquitectura en Piedra</h3>
+                        <p>Construcción tradicional con materiales naturales</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./interiores.jpg" alt="Interior de cabaña">
+                    <div class="gallery-item-overlay">
+                        <h3>Interiores Acogedores</h3>
+                        <p>Ambientes cálidos y confortables</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./descanso.jpeg" alt="Dormitorio cabaña">
+                    <div class="gallery-item-overlay">
+                        <h3>Descanso Absoluto</h3>
+                        <p>Habitaciones equipadas con todo lo necesario</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./cocina.jpg" alt="Cocina equipada">
+                    <div class="gallery-item-overlay">
+                        <h3>Cocina Completa</h3>
+                        <p>Equipamiento moderno y funcional</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./pileta.jpeg" alt="Pileta">
+                    <div class="gallery-item-overlay">
+                        <h3>Pileta Climatizada</h3>
+                        <p>Disfruta todo el año</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./sierras.jpg" alt="Vista panorámica">
+                    <div class="gallery-item-overlay">
+                        <h3>Vistas Serranas</h3>
+                        <p>Naturaleza en estado puro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <div class="section-header">
+                <span class="section-tag">Experiencia Completa</span>
+                <h2>Todo lo que necesitás para una estadía perfecta</h2>
+                <p>Hemos pensado cada detalle para que tu experiencia en Las Piedras sea inolvidable</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Pileta Climatizada</h3>
+                    <p>Disfrutá de nuestra pileta climatizada en cualquier época del año, rodeada de un amplio jardín con reposeras.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>Equipamiento Premium</h3>
+                    <p>Cocina totalmente equipada, ropa de cama de primera calidad, toallas, Wi-Fi de alta velocidad y todo lo necesario.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Ubicación Estratégica</h3>
+                    <p>En el corazón de El Trapiche, con fácil acceso a todos los atractivos turísticos de San Luis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3>Diseño Único</h3>
+                    <p>Arquitectura en piedra que combina la tradición serrana con el confort moderno en cada espacio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="16 12 12 8 8 12"/>
+                            <line x1="12" y1="16" x2="12" y2="8"/>
+                        </svg>
+                    </div>
+                    <h3>Espacios Amplios</h3>
+                    <p>Cabañas espaciosas con ambientes cómodos, terrazas privadas y vistas panorámicas de las sierras.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Servicio Completo</h3>
+                    <p>Servicio de sábanas, toallas, limpieza y atención personalizada durante toda tu estadía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Reservá tu Cabaña en Las Piedras</h2>
+            <p>
+                El verano serrano te espera. Consultá disponibilidad por WhatsApp y asegurá tu lugar en el mejor complejo de El Trapiche.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5492664552856?text=Hola%2C%20quiero%20consultar%20disponibilidad" target="_blank" class="cta-btn-primary">
+                    Consultar por WhatsApp
+                </a>
+                <a href="#cabanas" class="cta-btn-secondary">
+                    Ver Cabañas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Las Piedras</h3>
+                <p>
+                    Complejo de cabañas en El Trapiche, San Luis. Conectá con la naturaleza y viví una experiencia inolvidable en las sierras puntanas.
+                </p>
+                <p>
+                    <strong>El Trapiche, San Luis, Argentina</strong>
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#cabanas">Cabañas</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+5492664552856">(2664) 552856</a></li>
+                    <li><a href="https://wa.me/5492664552856" target="_blank">WhatsApp</a></li>
+                    <li><a href="https://instagram.com/laspiedrascomplejo" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Información</h4>
+                <ul class="footer-links">
+                    <li><a href="#politicas">Políticas</a></li>
+                    <li><a href="#preguntas">Preguntas Frecuentes</a></li>
+                    <li><a href="#reservas">Cómo Reservar</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2025 Las Piedras Complejo de Cabañas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5492664552856?text=Hola%2C%20quiero%20consultar%20disponibilidad" target="_blank" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu after clicking
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
